@@ -9,7 +9,7 @@ import UIKit
 
 protocol LanguageCollectionViewDelegate: NSObject {
     
-    func collectionViewDidSelect(collectionViewCell: YRLanguageCollectionViewCell?, index: Int, didTapInTableViewCell: YRLanguageTableViewCell)
+    func collectionViewDidSelect(collectionViewCell: YRLanguageCollectionViewCell?, index: Int, didTapInTableViewCell: YRLanguageTableViewCell, languageSelect: String)
 }
 class YRLanguageTableViewCell: UITableViewCell {
     
@@ -61,13 +61,13 @@ extension YRLanguageTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         // if you want to show specific number of cells in Row
-        let noOfCellsInRow = 2
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        
-        return CGSize(width: size, height: size)
-       // return CGSize(width: 100, height: 100)
+//        let noOfCellsInRow = 2
+//        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+//        let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+//        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+//
+//        return CGSize(width: size, height: size)
+        return CGSize(width: 100, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,7 +81,7 @@ extension YRLanguageTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? YRLanguageCollectionViewCell
-        self.languageCellDelegate?.collectionViewDidSelect(collectionViewCell: cell, index: indexPath.item, didTapInTableViewCell: self)
+        self.languageCellDelegate?.collectionViewDidSelect(collectionViewCell: cell, index: indexPath.item, didTapInTableViewCell: self, languageSelect: languageArray[indexPath.row])
     }
     
     
