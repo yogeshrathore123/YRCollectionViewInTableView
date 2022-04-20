@@ -8,7 +8,9 @@
 import UIKit
 
 class YRLanguageCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var languageLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
