@@ -51,7 +51,7 @@ extension YRHomeViewController: UITableViewDataSource {
 
 extension YRHomeViewController: LanguageCollectionViewDelegate {
     func collectionViewDidSelect(collectionViewCell: YRLanguageCollectionViewCell?, index: Int, didTapInTableViewCell: YRLanguageTableViewCell, languageSelect: String) {
-        print("Tap on idex = \(index) you Select language \(languageSelect)")
+        print("Tap on index = \(index) you Select language \(languageSelect)")
     }
 }
 
